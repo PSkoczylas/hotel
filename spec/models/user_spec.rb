@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:user) { build(:user) }
+  let!(:user) { create(:user) }
 
   it "has a valid factory" do
     user.should be_valid
@@ -11,22 +11,22 @@ RSpec.describe User, type: :model do
     build(:user, first_name: "    ", last_name: "").should_not be_valid
   end
 
-  it "has a present name" do
-    build(:user, first_name: "  ")
+  it "has a present first name" do
+    build(:user, first_name: "  ").should_not be_valid
   end
 
   it "has a present last name" do
     build(:user, last_name: "    ").should_not be_valid
   end
 
-  it "first_name has most 50 characters" do
+  it "first name has most 50 characters" do
     long_name = "a" * 51
     build(:user, first_name: long_name).should_not be_valid
     shorter_name = "a" * 50
     build(:user, first_name: shorter_name).should be_valid
   end
 
-  it "first_name has most 50 characters" do
+  it "last name has most 50 characters" do
     long_name = "a" * 51
     build(:user, last_name: long_name).should_not be_valid
     shorter_name = "a" * 50
@@ -40,7 +40,7 @@ RSpec.describe User, type: :model do
     build(:user, email: shorter_mail).should be_valid
   end
 
-  it "email format should be correct" do
+  it "email format is correct" do
     build(:user, email: "fe.ffwe@e").should_not be_valid
     build(:user, email: "@greger.com").should_not be_valid
     build(:user, email: "a@c.q").should be_valid
@@ -48,7 +48,7 @@ RSpec.describe User, type: :model do
     build(:user, email: "gerge").should_not be_valid
   end
 
-  it "email should be unique" do
+  it "email is unique" do
     user_dup = user.dup
     user_dup.email = user.email.upcase
     user.save

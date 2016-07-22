@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:user) { create(:user) }
+  let!(:user) { build(:user) }
 
   it "has a valid factory" do
     user.should be_valid
@@ -53,6 +53,10 @@ RSpec.describe User, type: :model do
     user_dup.email = user.email.upcase
     user.save
     user_dup.should_not be_valid
+  end
+
+  it "email presents" do
+    build(:user, email: "    ").should_not be_valid
   end
 
   it "password should be present " do

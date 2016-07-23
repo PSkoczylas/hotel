@@ -6,6 +6,7 @@ class CreateRooms < ActiveRecord::Migration[5.0]
       t.integer :quantity_of_beds, default: 0, null: false
       t.integer :standard, default: 0, null: false
       t.integer :price, default: 0
+      t.timestamps null: false
     end
   end
 end

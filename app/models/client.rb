@@ -1,4 +1,7 @@
 class Client < ApplicationRecord
+  has_many :term
+  has_many :room, through: :term
+
   before_validation :parse_phone_number
   validates :first_name, presence: true, length: {maximum: 50}
   validates :last_name, presence: true, length: {maximum: 50}

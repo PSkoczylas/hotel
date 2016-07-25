@@ -1,0 +1,10 @@
+.container
+  .row
+    .col-md-6
+      = simple_form_for @room do |f|
+        = f.input :room_number, label: 'Numer pokoju'
+        = f.input :floor, label: "Numer piętra"
+        = f.input :quantity_of_beds, label: "Ilość łóżek (miejsc) w pokoju"
+        = f.input :standard, collection: Room::STATUSES
+        = f.input :price, label: "Cena za miejsce"
+        = f.submit "Zapisz", class: "btn btn-primary"

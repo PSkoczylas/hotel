@@ -7,8 +7,6 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
-  require 'devise'
-  config.include Devise::TestHelpers, :type => :controller
   ActiveRecord::Migration.maintain_test_schema!
   config.expect_with :rspec do |c|
     c.syntax = [:should, :expect]

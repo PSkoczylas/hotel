@@ -1,0 +1,24 @@
+%h1 Pokoje
+
+.actions
+  = link_to 'Dodaj pokój', new_room_path, :class => "btn btn-primary", data: { "no-turbolink" =>  true}
+
+%table.table
+  %thead
+    %tr
+      %th Numer
+      %th Piętro
+      %th Ilość miejsc
+      %th Standard
+      %th Cena za miejsce
+    
+  %tbody
+    - @rooms.each do |room|
+      %tr
+        %td= link_to room.room_number, room
+        %td= room.floor
+        %td= room.quantity_of_beds
+        %td= room.standard
+        %td= "#{room.price} zł"
+        %td= link_to 'Edytuj', edit_room_path(room), data: { "no-turbolink" =>  true}
+        %td= link_to 'x', room, method: :delete, data: { confirm: 'Na pewno usunąć?' }, class: "close"

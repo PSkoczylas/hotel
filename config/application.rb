@@ -18,5 +18,7 @@ module Hotel
         :request_specs => true
       g.fixture_replacement :factory_girl, :dir => "spec/factories"
     end
+    I18n.config.available_locales = [:en, :pl]
+    config.i18n.default_locale = :pl
   end
 end

@@ -12,5 +12,7 @@ class Room < ApplicationRecord
                                numericality: { greater_than_or_equal_to: 1 }                       
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
-  enum standard: { normal: 0, higher: 1, highest: 2 }
+  STATUSES = [:normal, :higher, :highest]
+  enum standard: STATUSES
+#  enum standard: { normal: 0, higher: 1, highest: 2 }
 end

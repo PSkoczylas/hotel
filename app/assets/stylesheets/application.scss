@@ -2,3 +2,44 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+
+
+body {
+  padding-top: 60px;
+}
+
+.left-margin {
+  margin-left: 10%;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 15px;
+  font-size: 1.9em;
+  color: white;
+  letter-spacing: -1px;
+  padding-top: 8px;
+  font-weight: bold;
+  background: none;
+  font-family: monospace;
+}
+
+.navbar-fixed-top {
+    background-color: #18088A;
+    border-color: #E7E7E7;
+}
+
+.nav {
+  font-family: monospace;
+  font-weight: bold;
+  li {
+    &:hover {
+      background-color: #0B0B3B;
+    }
+    a:visited {
+      color: white;
+    }
+  }
+}

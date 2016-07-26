@@ -1,0 +1,18 @@
+%div{class: "left-margin"}
+  %h1= "Pokój nr #{@room.room_number} piętro #{@room.floor}"
+
+  %dl.dl-horizontal
+    %dt.strong Numer:
+    %dd= @room.room_number
+    
+    %dt.strong Piętro:
+    %dd= @room.floor
+
+    %dt.strong Ilość łóżek:
+    %dd= @room.quantity_of_beds
+
+    %dt.strong Standard:
+    %dd= @room.standard
+
+    %dt.strong Cena:
+    %dd= "#{@room.price} złotych"

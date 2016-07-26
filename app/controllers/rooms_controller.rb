@@ -1,5 +1,5 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:destroy, :edit, :update]
+  before_action :set_room, only: [:destroy, :edit, :update, :show]
   before_action :authenticate_user!
   
   # GET /rooms
@@ -28,7 +28,6 @@ class RoomsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -37,6 +36,9 @@ class RoomsController < ApplicationController
     else
       render action: 'edit'
     end
+  end
+
+  def show
   end
 
   private

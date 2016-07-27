@@ -1,0 +1,22 @@
+%h1 Klienci
+
+.actions
+  = link_to 'Dodaj klienta', new_client_path, :class => "btn btn-primary", data: { "no-turbolink" =>  true}
+
+%table.table
+  %thead
+    %tr
+      %th Imię
+      %th Nazwisko
+      %th Numer telefonu
+      %th email
+    
+  %tbody
+    - @clients.each do |client|
+      %tr
+        %td= link_to client.first_name, client
+        %td= client.last_name
+        %td= client.parse_out_phone_number
+        %td= client.email
+        %td= link_to 'Edytuj', edit_client_path(client), data: { "no-turbolink" =>  true}
+        %td= link_to 'x', client, method: :delete, data: { confirm: 'Na pewno usunąć?' }, class: "close"

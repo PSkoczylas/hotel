@@ -3,7 +3,7 @@ class Room < ApplicationRecord
   has_many :client, through: :term
 
   validates :room_number, presence: true,
-                          uniqueness: {:scope => :floor},
+                          uniqueness: true,
                           numericality: { greater_than_or_equal_to: 0 }                       
   validates :floor, presence: true,
             numericality: { greater_than_or_equal_to: -1 }                       
@@ -14,5 +14,4 @@ class Room < ApplicationRecord
 
   STATUSES = [:normal, :higher, :highest]
   enum standard: STATUSES
-#  enum standard: { normal: 0, higher: 1, highest: 2 }
 end

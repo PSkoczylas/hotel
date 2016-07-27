@@ -1,0 +1,15 @@
+%div{class: "left-margin"}
+  %h1{:style => "margin-left: 5%;"}= "#{@client.first_name} #{@client.last_name}"
+
+  %dl.dl-horizontal
+    %dt.strong Imię:
+    %dd= @client.first_name
+    
+    %dt.strong Nazwisko:
+    %dd= @client.last_name
+
+    %dt.strong Numer telefonu:
+    %dd= @client.phone_number
+
+    %dt.strong E-mail:
+    %dd= @client.email

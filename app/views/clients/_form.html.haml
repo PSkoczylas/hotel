@@ -1,0 +1,9 @@
+%div{class: "padding"}
+  .row
+    .col-md-6
+      = simple_form_for @client do |f|
+        = f.input :first_name, label: "Imię"
+        = f.input :last_name, label: "Nazwisko"
+        = f.input :email, label: "Adres email"
+        = f.input :phone_number, label: "Numer telefonu"
+        = f.submit "Zapisz", class: "btn btn-primary"

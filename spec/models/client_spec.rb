@@ -44,7 +44,7 @@ RSpec.describe Client, type: :model do
     build(:client, email: "fe.ffwe@e").should_not be_valid
     build(:client, email: "@greger.com").should_not be_valid
     build(:client, email: "a@c.q").should be_valid
-    build(:client, email: "   ").should_not be_valid
+    build(:client, email: "   ").should be_valid
     build(:client, email: "gerge").should_not be_valid
   end
 

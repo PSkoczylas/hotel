@@ -12,27 +12,20 @@ RSpec.describe Room, type: :model do
     build(:room, room_number: nil).should_not be_valid
   end
 
-  it "does unique rooms" do
+  it "has unique rooms" do
     room_dup = room.dup
     room.save
     room_dup.should_not be_valid
   end
 
-  it "does the same room number on other floors" do
+  it "hasn't the same room number on other floors" do
     room_dup = room.dup
     room_dup.floor += 1
     room.save
-    room_dup.should be_valid
+    room_dup.should_not be_valid
   end
 
-  it "does the same floor on other room numbers" do
-    room_dup = room.dup
-    room_dup.floor += 1
-    room.save
-    room_dup.should be_valid
-  end
-
-  it "does the same room numbers on other floors" do
+  it "has other room numbers on the same floor" do
     room_dup = room.dup
     room_dup.room_number += 1
     room.save

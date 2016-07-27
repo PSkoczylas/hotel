@@ -8,8 +8,45 @@ body {
   padding-top: 60px;
 }
 
-.left-margin {
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+.padding {
+  padding-top: 25px;
+}
+
+.margins {
   margin-left: 10%;
+  margin-right: 10%;
+}
+
+dt, dd {
+  padding-top: 4px;
+  font-size: 140%;  
+}
+
+dt {
+  float: left;
+    width: 3em;
+    clear: both;
+
+}
+
+dd {
+  margin-bottom: 5px;
 }
 
 /* header */

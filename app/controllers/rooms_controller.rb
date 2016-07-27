@@ -18,6 +18,7 @@ class RoomsController < ApplicationController
     @room = Room.new
   end
 
+  # POST /rooms
   def create
     @room = Room.new(room_params)
     if @room.save
@@ -27,9 +28,12 @@ class RoomsController < ApplicationController
     end
   end
 
+  # GET /rooms/1/edit
   def edit
   end
 
+
+  # PATCH/PUT /rooms/1
   def update
     if @room.update(room_params)
       redirect_to rooms_path, notice: "Pokój został pomyślnie zaktualizowany."
@@ -37,7 +41,8 @@ class RoomsController < ApplicationController
       render action: 'edit'
     end
   end
-
+  
+  # GET /rooms/1
   def show
   end
 

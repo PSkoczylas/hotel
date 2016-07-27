@@ -8,10 +8,10 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true, 
                          length: {maximum: 50},
-                         format: { with: /[a-zA-Z]/ }
+                         format: { with: /[\p{L}\p{Pd}.]/ }
   validates :last_name, presence: true, 
                         length: {maximum: 50},
-                         format: { with: /[a-zA-Z]/ }
+                        format: { with: /[\p{L}\p{Pd}.]/ }
   validates :email, presence: true, length: {maximum: 255},
                     format: {with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }

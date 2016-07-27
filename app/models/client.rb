@@ -5,10 +5,10 @@ class Client < ApplicationRecord
   before_validation :parse_in_phone_number
   validates :first_name, presence: true, 
                          length: {maximum: 50},
-                         format: { with: /[a-zA-Z]/ }
+                         format: { with: /[\p{L}\p{Pd}.]/ }
   validates :last_name, presence: true, 
                         length: {maximum: 50},
-                         format: { with: /[a-zA-Z]/ }
+                        format: { with: /[\p{L}\p{Pd}.]/ }
   validates :email, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }, 
                     unless: Proc.new { |a| a.email.blank? }

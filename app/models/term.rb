@@ -2,10 +2,9 @@ class Term < ApplicationRecord
   belongs_to :room
   belongs_to :client
   
-  validate :correct_term?
+  validate :correct_term?, :free_term?, if: "begin_date.present? && end_date.present?"
   validate :room_exists?
   validate :client_exists?
-  validate :free_term?
   validates :begin_date, presence: true
   validates :end_date, presence: true
   validates :room_id, presence: true

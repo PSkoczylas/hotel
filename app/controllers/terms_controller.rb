@@ -21,9 +21,6 @@ class TermsController < ApplicationController
   # POST /terms
   def create
     @term = Term.new(term_params)
-    if @term.client.blank?
-      render partial: 'client/form'
-    end
     if @term.save
       redirect_to terms_path, notice: "Pokój został pomyślnie dodany."
     else

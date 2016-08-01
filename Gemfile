@@ -33,6 +33,9 @@ gem 'pundit'
 gem 'enum_help'
 gem 'rails-i18n', '~> 5.0.0'
 gem 'rails-controller-testing'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

@@ -2,9 +2,10 @@
   .row
     .col-md-6
       = simple_form_for @room do |f|
-        = f.input :room_number, label: 'Numer pokoju'
-        = f.input :floor, label: "Numer piętra"
-        = f.input :quantity_of_beds, label: "Ilość łóżek (miejsc) w pokoju"
-        = f.input :standard, collection: Room::STATUSES
-        = f.input :price, label: "Cena za miejsce"
+        = f.input :room_number, label: 'Numer pokoju', error: "Nieprawidłowy numer"
+        = f.input :floor, label: "Numer piętra", error: "Nieprawidłowe piętro"
+        = f.input :quantity_of_beds, label: "Ilość łóżek (miejsc) w pokoju", error: "Nieprawidłowa ilość miejsc"
+        = f.input :standard, collection: Room::STATUSES, error: "Nieprawidłowy standard"
+        = f.input :price, label: "Cena za miejsce", error: "Wprowadź poprawną cenę"
         = f.submit "Zapisz", class: "btn btn-primary"
+

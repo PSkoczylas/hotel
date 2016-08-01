@@ -1,0 +1,28 @@
+%h1 Terminy rezerwacji
+
+.actions
+  = link_to 'Dodaj rezerwację', new_term_path, :class => "btn btn-primary", data: { "no-turbolink" => true }
+
+%table.table
+  %thead
+    %tr
+      %th Numer
+      %th Data rozpoczęcia
+      %th Data zakończenia
+      %th Numer pokoju
+      %th Imię i nazwisko klienta
+      %th Ilość łóżek
+      %th Należność
+
+  %tbody
+    - @terms.each do |term|
+      %tr
+        %td= term.id
+        %td= term.begin_date
+        %td= term.end_date
+        %td= term.room.room_number
+        %td= term.full_name
+        %td= term.quantity_of_beds
+        %td= "#{term.get_price} zł"
+        %td= link_to 'Edytuj', edit_term_path(term), data: { "no-turbolink" =>  true}
+        %td= link_to 'x', term, method: :delete, data: { confirm: 'Na pewno usunąć?' }, class: "close"

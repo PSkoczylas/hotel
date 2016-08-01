@@ -31,6 +31,10 @@ class Client < ApplicationRecord
     return result
   end
 
+  def a
+    "#{self.first_name} #{self.last_name} #{self.phone_number}"
+  end
+
   protected
     def parse_in_phone_number
       self.phone_number.gsub!(/[()-.+x ]/, '')    

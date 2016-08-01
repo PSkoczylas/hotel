@@ -1,0 +1,25 @@
+%div{class: "padding"}
+  .container
+    .row
+      .col-md-6
+        = simple_form_for @term do |f|
+          = f.input :begin_date, as: :string, :input_html => { :id => "datetimepicker1" }, label: "Data rozpoczęcia", error: "Nieprawidłowy termin" 
+          = f.input :end_date, as: :string, :input_html => {:id => "datetimepicker2" }, label: "Data zakończenia", error: "Nieprawidłowy termin"
+          = f.input :quantity_of_beds, label: 'Ilość rezerwowanych miejsc (łóżek)', error: "Za dużo osób na pokój w danym czasie"
+          = f.association :room, :include_blank => false, label: "Pokój", :label_method => lambda { |room| "#{room.room_number}, piętro #{room.floor}" }, error: "nie ma takiego pokoju" 
+          = f.association :client, :include_blank => false,  value_method: :id, :label_method => lambda { |client| "#{client.first_name} #{client.last_name} (#{client.parse_out_phone_number})" } , label: "Klient (dodaj nowego jeżeli nie istnieje)", prompt: "Brak wybranego klienta - zostaniesz przeniesiony, aby stworzyć nowego użytkownika", error: "Nie ma takiego klienta"
+          = f.submit "Zapisz", class: "btn btn-primary"
+
+        
+        :javascript
+          $(function () {
+            $('#datetimepicker1').datetimepicker({
+              format: 'DD/MM/YYYY'
+            });
+          });
+
+          $(function () {
+            $('#datetimepicker2').datetimepicker({
+              format: 'DD/MM/YYYY'
+            });
+          });

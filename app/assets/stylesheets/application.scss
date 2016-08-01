@@ -2,6 +2,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
+@import 'bootstrap-datetimepicker';
 
 
 body {
@@ -68,14 +69,18 @@ dd {
     border-color: #E7E7E7;
 }
 
+
+
 .nav {
   font-family: monospace;
   font-weight: bold;
+  color: white;
   li {
     &:hover {
       background-color: #0B0B3B;
+      color: white;
     }
-    a:visited {
+    a:link, a:visited {
       color: white;
     }
   }

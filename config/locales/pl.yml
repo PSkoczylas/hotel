@@ -1,4 +1,11 @@
 pl:
-  normal: normalny
-  higher: podwyższony
-  highest: luksusowy
+  enums:
+    room:
+      standard:
+        normal: 'Normalny'
+        higher: 'Podwyższony'
+        highest: 'Luksusowy'
+  standard:
+    normal: 'Normalny'
+    higher: 'Podwyższony'
+    highest: 'Luksusowy'

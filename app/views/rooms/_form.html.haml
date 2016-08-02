@@ -5,7 +5,7 @@
         = f.input :room_number, label: 'Numer pokoju', error: "Nieprawidłowy numer"
         = f.input :floor, label: "Numer piętra", error: "Nieprawidłowe piętro"
         = f.input :quantity_of_beds, label: "Ilość łóżek (miejsc) w pokoju", error: "Nieprawidłowa ilość miejsc"
-        = f.input :standard, collection: Room::STATUSES, include_blank: false, error: "Nieprawidłowy standard"
+        = f.input :standard, include_blank: false, error: "Nieprawidłowy standard", prompt: :translate
         = f.input :price, label: "Cena za miejsce", error: "Wprowadź poprawną cenę"
         = f.submit "Zapisz", class: "btn btn-primary"
 

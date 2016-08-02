@@ -2,6 +2,8 @@ class Client < ApplicationRecord
   has_many :term
   has_many :room, through: :term
 
+  default_scope -> { order(:last_name) }
+
   before_validation :parse_in_phone_number
   validates :first_name, presence: true, 
                          length: {maximum: 50},

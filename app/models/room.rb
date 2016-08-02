@@ -2,6 +2,8 @@ class Room < ApplicationRecord
   has_many :term
   has_many :client, through: :term
 
+  default_scope -> { order(:room_number) }
+
   validates :room_number, presence: true,
                           uniqueness: true,
                           numericality: { greater_than_or_equal_to: 0 }                       

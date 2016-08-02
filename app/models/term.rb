@@ -1,6 +1,8 @@
 class Term < ApplicationRecord
   belongs_to :room
   belongs_to :client
+
+  default_scope -> { order(:begin_date) }
   
   validate :correct_term?, :free_term?, if: "begin_date.present? && end_date.present?"
   validate :room_exists?

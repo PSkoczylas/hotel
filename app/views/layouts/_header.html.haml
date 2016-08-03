@@ -1,13 +1,21 @@
-%header{:class => "navbar navbar-fixed-top navbar-inverse"}
-  %div{:class => "container"}
-    = link_to "Hotel", root_path, id: "logo"
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .container
     %nav
-      %ul{:class => "nav navbar-nav navbar-right"}
-        %li 
-          = link_to "Pokoje", rooms_path
-        %li
-          = link_to "Rezerwacje", terms_path
-        %li
-          = link_to "Klienci", clients_path
-        %li
-          = link_to "Wyloguj się", destroy_user_session_path, :method => :delete
+      .navbar-header
+        %button.navbar-toggle{:data => {:target => ".navbar-collapse", :toggle => "collapse"}, :type => "button"}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to "Hotel", root_path, id: "logo"
+      .navbar-collapse.collapse
+        %ul.nav.navbar-nav.navbar-right
+          %li 
+            = link_to "Pokoje", rooms_path
+          %li
+            = link_to "Rezerwacje", terms_path
+          %li
+            = link_to "Klienci", clients_path
+          %li
+            - if user_signed_in?
+              = link_to "Wyloguj się", destroy_user_session_path, :method => :delete

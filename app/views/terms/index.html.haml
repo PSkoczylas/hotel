@@ -21,7 +21,7 @@
         %td= term.begin_date
         %td= term.end_date
         %td= term.room.room_number
-        %td= term.full_name
+        %td= term.client_full_name
         %td= term.quantity_of_beds
         %td= "#{term.get_price} zł"
         %td= link_to 'Edytuj', edit_term_path(term), data: { "no-turbolink" =>  true}

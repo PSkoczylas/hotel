@@ -28,9 +28,11 @@ class TermsController < ApplicationController
     end
   end
 
+  # EDIT /terms/1/edit
   def edit
   end
 
+  # PATCH/PUT /terms/1
   def update
     if @term.update(term_params)
       redirect_to terms_path, notice: "Termin rezerwacji został pomyślnie zaktualizowany"
@@ -40,7 +42,6 @@ class TermsController < ApplicationController
   end
 
   private
-
     def set_term
       @term = Term.find(params[:id])
     end

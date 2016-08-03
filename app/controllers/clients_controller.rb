@@ -18,6 +18,7 @@ class ClientsController < ApplicationController
     @client = Client.new
   end
 
+  # POST /clients/
   def create
     @client = Client.new(client_params)
     if @client.save
@@ -27,9 +28,11 @@ class ClientsController < ApplicationController
     end
   end
 
+  # GET /clients/1/edit
   def edit
   end
 
+  # PATCH/PUT /clients/1
   def update
     if @client.update(client_params)
       redirect_to clients_path, notice: "Pokój został pomyślnie zaktualizowany."
@@ -38,6 +41,7 @@ class ClientsController < ApplicationController
     end
   end
 
+  # GET /rooms/1
   def show
   end
 

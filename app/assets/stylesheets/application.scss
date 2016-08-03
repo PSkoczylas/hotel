@@ -65,7 +65,6 @@ dd {
 }
 
 .navbar-fixed-top {
-  background-color: #18088A;
   border-color: #E7E7E7;
   background-image: -webkit-linear-gradient(bottom, #18088A, #0B0B3B);
 }
@@ -78,7 +77,7 @@ dd {
   color: white;
   li {
     &:hover {
-      background-image: -webkit-linear-gradient(bottom, #2E2EFE, #0B0B3B);
+      background-image: -webkit-linear-gradient(bottom, #180EFA, #0B0B3B);
       color: white;
     }
     a:link, a:visited {

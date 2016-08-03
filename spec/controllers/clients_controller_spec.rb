@@ -13,6 +13,9 @@ describe ClientsController do
     sign_in user
   end
 
+  def sort_by_name(clients)
+    clients.sort { |x, y| x.first_name <=> y.first_name }.sort {|x, y| x.last_name <=> y.last_name}  
+  end
 
   describe "GET #index" do
     it "respnds successfuly HTTP 200 status code" do
@@ -22,7 +25,7 @@ describe ClientsController do
 
     it "loads all of the posts into @clients" do
       get :index 
-      assigns(:clients).should eq([client1, client2, client3])
+      assigns(:clients).should eq(sort_by_name [client1, client2, client3])
     end
   end
 
@@ -42,10 +45,10 @@ describe ClientsController do
 
     it "deletes given element" do
       get :index
-      assigns(:clients).should eq([client1, client2, client3])
+      assigns(:clients).should eq(sort_by_name [client1, client2, client3])
       delete :destroy, format: :html, params: { id: client1.id }
       get :index
-      assigns(:clients).should eq([client2, client3])
+      assigns(:clients).should eq(sort_by_name [client2, client3])
     end
   end
 

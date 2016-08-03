@@ -2,7 +2,7 @@ class Client < ApplicationRecord
   has_many :term
   has_many :room, through: :term
 
-  default_scope -> { order(:last_name) }
+  default_scope -> { order(:last_name).order(:first_name) }
 
   before_validation :parse_in_phone_number
   validates :first_name, presence: true, 
@@ -33,13 +33,8 @@ class Client < ApplicationRecord
     return result
   end
 
-  def a
-    "#{self.first_name} #{self.last_name} #{self.phone_number}"
-  end
-
   protected
     def parse_in_phone_number
       self.phone_number.gsub!(/[()-.+x ]/, '')    
     end
-
 end

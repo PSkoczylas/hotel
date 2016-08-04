@@ -4,17 +4,13 @@ describe ClientsController do
   render_views
   
   let!(:user) { create(:user) }
-  let!(:client1) { create(:client, phone_number: "32254521") }
-  let!(:client2) { create(:client, phone_number: "34209884") }
-  let!(:client3) { create(:client, phone_number: "34432884") }
+  let!(:client1) { create(:client, phone_number: "32254521", first_name: "Antonina", last_name: "Sroka") }
+  let!(:client2) { create(:client, phone_number: "34209884", first_name: "Gabriel", last_name: "Słowiński") }
+  let!(:client3) { create(:client, phone_number: "34432884", first_name: "Gertruda", last_name: "Stolarski") }
 
 
   before(:each) do
     sign_in user
-  end
-
-  def sort_by_name(clients)
-    clients.sort { |x, y| x.first_name <=> y.first_name }.sort {|x, y| x.last_name <=> y.last_name}  
   end
 
   describe "GET #index" do
@@ -25,7 +21,8 @@ describe ClientsController do
 
     it "loads all of the posts into @clients" do
       get :index 
-      assigns(:clients).should eq(sort_by_name [client1, client2, client3])
+      assigns(:clients).sort.should eq([client1, client2, client3].sort)
+     # binding.pry
     end
   end
 
@@ -45,10 +42,10 @@ describe ClientsController do
 
     it "deletes given element" do
       get :index
-      assigns(:clients).should eq(sort_by_name [client1, client2, client3])
+      assigns(:clients).sort.should eq([client1, client2, client3].sort)
       delete :destroy, format: :html, params: { id: client1.id }
       get :index
-      assigns(:clients).should eq(sort_by_name [client2, client3])
+      assigns(:clients).sort.should eq([client2, client3].sort)
     end
   end
 

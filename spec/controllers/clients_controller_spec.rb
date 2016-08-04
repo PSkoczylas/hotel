@@ -4,9 +4,9 @@ describe ClientsController do
   render_views
   
   let!(:user) { create(:user) }
-  let!(:client1) { create(:client, phone_number: "32254521", first_name: "Antonina", last_name: "Sroka") }
-  let!(:client2) { create(:client, phone_number: "34209884", first_name: "Gabriel", last_name: "Słowiński") }
-  let!(:client3) { create(:client, phone_number: "34432884", first_name: "Gertruda", last_name: "Stolarski") }
+  let!(:client1) { create(:client, phone_number: "32254521") }
+  let!(:client2) { create(:client, phone_number: "34209884") }
+  let!(:client3) { create(:client, phone_number: "34432884") }
 
 
   before(:each) do

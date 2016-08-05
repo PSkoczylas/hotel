@@ -22,7 +22,6 @@ describe ClientsController do
     it "loads all of the posts into @clients" do
       get :index 
       assigns(:clients).sort.should eq([client1, client2, client3].sort)
-     # binding.pry
     end
   end
 

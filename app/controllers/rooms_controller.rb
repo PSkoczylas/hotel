@@ -12,7 +12,7 @@ class RoomsController < ApplicationController
     @room.destroy
     redirect_to rooms_path
   end
-
+  
   # GET /rooms/new
   def new
     @room = Room.new

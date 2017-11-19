@@ -5,6 +5,8 @@ class Client < ApplicationRecord
   default_scope -> { order(:last_name).order(:first_name) }
 
   before_validation :parse_in_phone_number
+  before_destroy :destroy_terms
+
   validates :first_name, presence: true, 
                          length: {maximum: 50},
                          format: { with: /[\p{L}\p{Pd}.]/ }
@@ -36,5 +38,10 @@ class Client < ApplicationRecord
   protected
     def parse_in_phone_number
       self.phone_number.gsub!(/[()-.+x ]/, '')    
+    end
+
+  private
+    def destroy_terms
+      self.term.destroy_all
     end
 end

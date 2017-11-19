@@ -4,6 +4,8 @@ class Room < ApplicationRecord
 
   default_scope -> { order(:room_number) }
 
+  before_destroy :destroy_terms
+
   validates :room_number, presence: true,
                           uniqueness: true,
                           numericality: { greater_than_or_equal_to: 0 }                       
@@ -15,4 +17,9 @@ class Room < ApplicationRecord
   validates :price, numericality: { greater_than_or_equal_to: 0 }
 
   enum standard: {normal: 0, higher: 1, highest: 2}
+
+  private
+    def destroy_terms
+      self.term.destroy_all
+    end
 end
